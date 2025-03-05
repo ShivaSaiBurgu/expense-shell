@@ -29,7 +29,7 @@ systemctl enable mysqld &>>$LOGFILE
 VALIDATE $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Starting MySQL Server"
-mysql -h db.burgu.space -uroot -p${password} -e 'SHOW DATABASES;'
+mysql -h db.burgu.space -uroot -p${password} -e 'SHOW DATABASES;' &>>LOGFILE
 if [ $? -eq 0 ]
 then
 echo "DB password already setup"
