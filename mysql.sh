@@ -1,6 +1,6 @@
 #!/bin/bash
 USER=$(id -u)
-if [$USER -ne 0 ]
+if [ $USER -ne 0 ]
 then
 echo "please run the script with root access"
 exit
