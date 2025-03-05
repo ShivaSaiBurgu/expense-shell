@@ -12,7 +12,7 @@ read password
 time=$(date +%F-%H-%M-%S)
 script=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$time-$script.log
-validate()
+VALIDATE()
 {
     if [ $1 -ne 0 ]
     then
@@ -24,7 +24,7 @@ validate()
 
 }
 yum install mysql-server -y &>>$LOGFILE
-validate $? "Installing mysql"
+VALIDATE $? "Installing mysql"
 systemctl enable mysqld &>>$LOGFILE
 VALIDATE $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOGFILE
